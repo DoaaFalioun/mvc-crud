@@ -82,20 +82,7 @@ class Countries extends Controller {
 
                 $this->view("countries/create", $data);
       }}
-      public function scan($id = null) {
-        // var_dump($id);exit();
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-           $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_SPECIAL_CHARS);
-           $this->countryModel->scanCountry($_POST);
-          header("Location: " . URLROOT . "/countries/index");
-          } else {
-        $row = $this->countryModel->getSingleCountry($id);
-        $data = [
-          'title' => '<h1>scan landenoverzicht</h1>',
-          'row' => $row
-        ];
-        $this->view("countries/scan", $data);
-      }}
+     
 }
 
 ?>
